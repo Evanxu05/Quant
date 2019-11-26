@@ -13,10 +13,10 @@ import datetime
 import talib
 #import tushare as ts#cmd /k C:\Python27.15\python.exe "$(FULL_CURRENT_PATH)" & PAUSE & EXIT 更改为2.7.15下运行
 
-plt.rcParams['font.sans-serif']=['SimHei'] #用来正常显示中文标签
+plt.rcParams['font.sans-serif']=['Arial Unicode MS'] #用来正常显示中文标签
 plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
 
-df_stockload = web.DataReader("600797.SS", "yahoo", datetime.datetime(2018,1,1), datetime.date.today())
+df_stockload = web.DataReader("600797.SS", "yahoo", datetime.datetime(2019,1,1), datetime.date.today())
 #print(type(datetime.datetime.now().strftime('%Y-%m-%d')))
 #df_stockload = ts.get_hist_data('600797',start='2018-01-01',end=datetime.datetime.now().strftime('%Y-%m-%d'))
 #df_stockload = df_stockload.sort_index(ascending=False)#降序排序
