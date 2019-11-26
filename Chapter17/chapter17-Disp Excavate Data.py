@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.gridspec as gridspec#分割子图
 #import mpl_finance as mpf #替换 import matplotlib.finance as mpf
-import matplotlib.finance as mpf
+import mpl_finance as mpf
 import pandas as pd
 import pandas_datareader.data as web
 import datetime
@@ -39,7 +39,7 @@ graph_KAV = fig.add_subplot(1,1,1)#创建子图
 ohlc = []
 ohlc = list(zip(np.arange(0,len(df_stockload.index)),df_stockload.Open,df_stockload.Close,df_stockload.High,df_stockload.Low))#使用zip方法生成数据列表 
 #mpf.candlestick_ochl(graph_KAV, ohlc, width=0.2, colorup='r', colordown='g', alpha=1.0)#绘制K线走势 Python3.7.1
-mpf.candlestick(graph_KAV, ohlc, width=0.2, colorup='r', colordown='g', alpha=1.0)#绘制K线走势 Python2.7.5
+mpf.candlestick_ohlc(graph_KAV, ohlc, width=0.2, colorup='r', colordown='g', alpha=1.0)#绘制K线走势 Python2.7.5
 #方法2
 #mpf.candlestick2_ochl(graph_KAV, df_stockload.Open,df_stockload.Close,df_stockload.High,df_stockload.Low, width=0.5, colorup='r', colordown='g')#绘制K线走势 Python3.7.1
 
@@ -47,9 +47,9 @@ mpf.candlestick(graph_KAV, ohlc, width=0.2, colorup='r', colordown='g', alpha=1.
 
 """ 绘制移动平均线图 """
 
-df_stockload['Ma20'] = pd.rolling_mean(df_stockload.Close,window=20)#df_stockload.Close.rolling(window=20).mean()
-df_stockload['Ma30'] = pd.rolling_mean(df_stockload.Close,window=30)#df_stockload.Close.rolling(window=30).mean()
-df_stockload['Ma60'] = pd.rolling_mean(df_stockload.Close,window=60)#df_stockload.Close.rolling(window=60).mean()
+df_stockload['Ma20'] = df_stockload.Close.rolling(window=20).mean()#df_stockload.Close.rolling(window=20).mean()
+df_stockload['Ma30'] = df_stockload.Close.rolling(window=30).mean()#df_stockload.Close.rolling(window=30).mean()
+df_stockload['Ma60'] = df_stockload.Close.rolling(window=60).mean()#df_stockload.Close.rolling(window=60).mean()
 
 numt = np.arange(0, len(df_stockload.index))
 
