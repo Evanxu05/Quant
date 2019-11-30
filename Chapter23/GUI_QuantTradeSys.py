@@ -21,7 +21,7 @@ from RedefPanelMod import MPL_Panel_Base,Loop_Panel_Base
 from StockDataMod import GetStockDatPro
 from IndicatStrateMod import Excave_Indic_Base, QuantPickTimeSys,FactorPickStockAng
 
-plt.rcParams['font.sans-serif']=['SimHei'] #用来正常显示中文标签
+plt.rcParams['font.sans-serif']=['Arial Unicode MS'] #用来正常显示中文标签
 plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
 
 class UserDialog(wx.Dialog):# user-defined

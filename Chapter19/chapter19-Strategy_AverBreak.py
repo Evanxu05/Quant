@@ -9,7 +9,7 @@ import pandas as pd
 import pandas_datareader.data as web
 import datetime
 
-plt.rcParams['font.sans-serif']=['SimHei'] #用来正常显示中文标签
+plt.rcParams['font.sans-serif']=['Arial Unicode MS'] #用来正常显示中文标签
 plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
 #cmd /k C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe "$(FULL_CURRENT_PATH)" & PAUSE & EXIT
 class QuantAverBreak:
