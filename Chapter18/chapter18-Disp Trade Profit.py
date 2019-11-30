@@ -13,15 +13,15 @@ import talib
 import csv,os,codecs
 import tushare as ts
 
-plt.rcParams['font.sans-serif']=['SimHei'] #用来正常显示中文标签
+plt.rcParams['font.sans-serif']=['Arial Unicode MS'] #用来正常显示中文标签
 plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
 
 #规整化 测试 #cmd /k C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe "$(FULL_CURRENT_PATH)" & PAUSE & EXIT
 
 def plot_trade(stock_df):
 
-    if os.path.isfile('C:\\Users\\Administrator\\Desktop\\ZDWX600797.csv'):
-        f=codecs.open('C:\\Users\\Administrator\\Desktop\\ZDWX600797.csv','rb','gb2312')#GB2312编码——>unicode
+    if os.path.isfile(r'/Users/xuyuanwu/Desktop/Python/Quant/Chapter18/ZDWX600797.csv'):
+        f=codecs.open(r'/Users/xuyuanwu/Desktop/Python/Quant/Chapter18/ZDWX600797.csv','rb','gb2312')#GB2312编码——>unicode
         #u = f.read()
         #print type(u)#<type 'unicode'>
         reader = csv.DictReader(f)
@@ -67,8 +67,8 @@ def plot_trade_profit(stock_df):
     graph_total = fig.add_subplot(gs[1,:])
     graph_profit = fig.add_subplot(gs[2,:])    
 
-    if os.path.isfile('C:\\Users\\Administrator\\Desktop\\ZDWX600797.csv'):
-        f=codecs.open('C:\\Users\\Administrator\\Desktop\\ZDWX600797.csv','rb','gb2312')#GB2312编码——>unicode
+    if os.path.isfile(r'/Users/xuyuanwu/Desktop/Python/Quant/Chapter18/ZDWX600797.csv'):
+        f=codecs.open(r'/Users/xuyuanwu/Desktop/Python/Quant/Chapter18/ZDWX600797.csv','rb','gb2312')#GB2312编码——>unicode
         reader = csv.DictReader(f)
 
         for row in reader:
@@ -161,7 +161,7 @@ def plot_trade_profit(stock_df):
 """
 stock = web.DataReader("AAPL", "yahoo", datetime.datetime(2017,1,1), datetime.date.today())#苹果公司数据获取
 """
-stock = web.DataReader("600797.SS", "yahoo", datetime.datetime(2018,1,1), datetime.date.today())
+stock = web.DataReader("600797.SS", "yahoo", datetime.datetime(2018,1,1), datetime.datetime(2018,12,31))
 
 #plot_trade(stock)
 plot_trade_profit(stock)
