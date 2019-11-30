@@ -76,7 +76,7 @@ graph_KAV.set_ylabel(u"价格")
 graph_KAV.set_xlim(0,len(df_stockload.index)) #设置一下x轴的范围
 graph_KAV.set_xticks(range(0,len(df_stockload.index),15))#X轴刻度设定 每15天标一个日期
 graph_KAV.grid(True,color='k')
-#graph_KAV.set_xticklabels([df_stockload.index.strftime('%Y-%m-%d')[index] for index in graph_KAV.get_xticks()])#标签设置为日期
+graph_KAV.set_xticklabels([df_stockload.trade_time[index] for index in graph_KAV.get_xticks()])#标签设置为日期
 
 
 """ 绘制成交量图 """

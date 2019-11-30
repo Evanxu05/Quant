@@ -22,7 +22,7 @@ plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
 stock_code = '000016.SH'
 End_date = datetime.date.today()
 #print(End_date.strftime(%Y%m%d))
-Start_date = end_date-timedelta(365)
+Start_date = End_date-timedelta(365)
 #print(Start_date.strftime(%Y%m%d))
 
 df_stockload = ts.pro_bar(ts_code=stock_code,start_date=Start_date.strftime('%Y%m%d'),end_date=End_date.strftime('%Y%m%d'),asset='I',freq='D',ma=[8,16,48,96])
@@ -46,7 +46,7 @@ numt = np.arange(0, len(df_stockload.index))
 """ 绘制K线图 """
 #方法1
 ohlc = []
-ohlc = list(zip(numt),df_stockload.open,df_stockload.close,df_stockload.high,df_stockload.low))#使用zip方法生成数据列表 
+ohlc = list(zip(numt,df_stockload.open,df_stockload.close,df_stockload.high,df_stockload.low))#使用zip方法生成数据列表 
 mpf.candlestick_ochl(graph_KAV, ohlc, width=0.2, colorup='r', colordown='g', alpha=1.0)#绘制K线走势 Python3.7.1
 #mpf.candlestick_ohlc(graph_KAV, ohlc, width=0.2, colorup='r', colordown='g', alpha=1.0)#绘制K线走势 Python2.7.5
 #方法2
@@ -71,7 +71,7 @@ graph_KAV.set_ylabel(u"价格")
 graph_KAV.set_xlim(0,len(df_stockload.index)) #设置一下x轴的范围
 graph_KAV.set_xticks(range(0,len(df_stockload.index),15))#X轴刻度设定 每15天标一个日期
 graph_KAV.grid(True,color='k')
-graph_KAV.set_xticklabels([df_stockload.index.strftime('%Y-%m-%d')[index] for index in graph_KAV.get_xticks()])#标签设置为日期
+graph_KAV.set_xticklabels([df_stockload.trade_date[index] for index in graph_KAV.get_xticks()])#标签设置为日期
 
 for label in graph_KAV.xaxis.get_ticklabels():   
 	label.set_rotation(45)
