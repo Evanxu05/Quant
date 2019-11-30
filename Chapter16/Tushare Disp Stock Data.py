@@ -15,7 +15,7 @@ import tushare as ts
 ts.set_token('fd5caf31a54962a7509e7d4d7972d235dbbc4f0c583003d0ef22d2cf')
 pro = ts.pro_api()
 
-plt.rcParams['font.sans-serif']=['SimHei'] #用来正常显示中文标签
+plt.rcParams['font.sans-serif']=['Arial Unicode MS'] #用来正常显示中文标签
 plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
 
 #股票基础信息
@@ -70,7 +70,7 @@ graph_KAV.legend(loc='best')
 """ 绘制移动平均线图 """
 
 #fig.suptitle('600797 浙大网新', fontsize = 14, fontweight='bold')
-graph_KAV.set_title(u"日K线")
+graph_KAV.set_title(stock_code + u"15分钟线")
 #graph_KAV.set_xlabel("日期")
 graph_KAV.set_ylabel(u"价格")
 graph_KAV.set_xlim(0,len(df_stockload.index)) #设置一下x轴的范围
